@@ -3,8 +3,8 @@ const cors = require('cors');
 const fetch = require('node-fetch');
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+app.use(cors());           // Enable CORS for all origins
+app.use(express.json());   // Parse JSON body
 
 app.post('/proxy/:guildId', async (req, res) => {
   const guildId = req.params.guildId;
@@ -25,4 +25,4 @@ app.post('/proxy/:guildId', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Proxy running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Proxy server running on port ${PORT}`));
